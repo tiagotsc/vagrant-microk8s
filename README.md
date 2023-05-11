@@ -103,7 +103,9 @@ microk8s status
 ```
 ![App Screenshot](images/img5.png)
 
-Como pode ser visto o modo alta disponibilidade já ficou ativo devido ao fato de montarmos um cluster com 3 nós, para ativar a HA o mínimo de nós são 3.
+Como pode ser visto o modo alta disponibilidade já ficou ativo devido ao fato de montarmos um cluster com 3 nós.
+
+Para ativar a HA é preciso ter no mínimo 3 nós.
 
 ## Alguns comandos úteis
 
