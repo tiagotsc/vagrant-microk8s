@@ -1,5 +1,5 @@
 ﻿
-## Vagrant - Provisionando um cluster Kubernetes MicroK8s
+## Vagrant - Provisionando um cluster Kubernetes MicroK8s de alta disponibilidade
 
 Será criado de forma rápida e objetiva, um cluster Kubernetes com MicroK8s.
 
