@@ -1,5 +1,5 @@
 ﻿
-## Vagrant - Provisionando um cluster Kubernetes MicroK8s
+## Vagrant - Provisionando um cluster Kubernetes MicroK8s de alta disponibilidade
 
 Será criado de forma rápida e objetiva, um cluster Kubernetes com MicroK8s.
 
@@ -103,7 +103,9 @@ microk8s status
 ```
 ![App Screenshot](images/img5.png)
 
-Como pode ser visto o modo alta disponibilidade já ficou ativo devido ao fato de montarmos um cluster com 3 nós, para ativar a HA o mínimo de nós são 3.
+Como pode ser visto o modo alta disponibilidade já ficou ativo devido ao fato de montarmos um cluster com 3 nós.
+
+Para ativar a HA é preciso ter no mínimo 3 nós.
 
 ## Alguns comandos úteis
 
@@ -150,7 +152,7 @@ Todo o tutorial aplicado aqui, já se encontra pronto para uso nesse repositóri
 
 https://developer.hashicorp.com/vagrant/docs
 
-MicroK8s
+#### Documentação oficial do MicroK8s
 
 https://microk8s.io/docs
 
