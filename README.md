@@ -110,13 +110,13 @@ Como pode ser visto o modo alta disponibilidade já ficou ativo devido ao fato d
 ### MicroK8s (Execute dentro de cada VM)
 
 ```bash
-# Desliga cluster
+# Para o nó
 microk8s stop
 
-# Ligar cluster
+# Inicia o nó, caso esteja parado
 microk8s start
 
-# Visualizar status do cluster
+# Visualizar status do nó e extensões
 microk8s status
 
 # Desativa o nó, execute esse comando dentro do nó que deseja desativar
