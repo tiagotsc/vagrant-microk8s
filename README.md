@@ -1,7 +1,7 @@
 ﻿
 ## Vagrant - Provisionando um cluster Kubernetes MicroK8s de alta disponibilidade
 
-Será criado de forma rápida e objetiva, um cluster Kubernetes com MicroK8s.
+Será criado de forma rápida e objetiva um cluster Kubernetes com MicroK8s.
 
 Tudo que for implementado ou criado na pasta raiz desse tutorial, já ficará disponível dentro do diretório das VMs em:
 
