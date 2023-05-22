@@ -70,6 +70,11 @@ Se você seguiu o passo a passo do tutorial https://github.com/tiagotsc/vagrant-
 
 2 - Já dentro da VM **microK8s1**, execute o seguinte comando 2 vezes para gerar os tokens para cada VM.
 
+````bash
+# Pegar token
+microk8s add-node
+````
+
 ![App Screenshot](images/img2.png)
 
 Cada token só pode ser rodado em uma única VM e serve para adicionar a VM no cluster Kubernetes MicroK8s.
@@ -77,6 +82,11 @@ Cada token só pode ser rodado em uma única VM e serve para adicionar a VM no c
 3 - Copie o primeiro token, logue com o putty na VM **microk8s2**, através do seu IP **192.168.56.151**.
 
 4 - Dentro da VM **microk8s2**, adicione o token e espere o termino da operação.
+
+````bash
+# Adiciona nó no cluster Kubernetes
+microk8s join IP:25000/TOKEN
+````
 
 ![App Screenshot](images/img3.png)
 
