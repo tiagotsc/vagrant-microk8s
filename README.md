@@ -117,6 +117,87 @@ Como pode ser visto o modo alta disponibilidade já ficou ativo devido ao fato d
 
 Para ativar a HA é preciso ter no mínimo 3 nós.
 
+## Opcional, ativando o painel dashboard nativo
+
+````bash
+# Habilita o gerenciamento e controle de DNS
+microk8s enable dns
+
+# Habilita o Load Balance e reserve um range de IP para uso
+microk8s enable metallb:192.168.56.200-192.168.56.220
+
+# Ative o dashboard
+microk8s enable dashboard
+
+# Recupere o token e reserve para uso posterior no navegador
+# OBS.: Se o token tiver expirado, você pode executar o comando novamente para gerar um novo
+microk8s kubectl create token default
+
+````
+
+#### Dashboarde já está ativo e para acessa lo externamente, execute uma das 3 formas abaixo.
+
+````bash
+# 1ª FORMA - ACESSO EXTERNO
+
+# Expondo o serviço
+microk8s kubectl port-forward -n kube-system service/kubernetes-dashboard 10443:443 --address='0.0.0.0'
+
+No navegador acesse (Firefox)
+https://IP_VM:10443
+
+# 2ª FORMA - ACESSO EXTERNO
+
+# Edite o serviço e troque de "ClusterIP" para "LoadBalancer" e salve
+kubectl -n kube-system edit service kubernetes-dashboard
+
+# Obtenha o IP externo do serviço "kubernetes-dashboard"
+kubectl get services -n kube-system
+
+No navegador acesse (Firefox)
+https://IP_EXTERNO (Serviço kubernetes-dashboard)
+
+# 3ª FORMA - ACESSO EXTERNO
+
+# Crie o serviço load balancer para o dashboard
+
+vi dash-serv-ld.yaml
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: dash-serv-ld
+  namespace: kube-system
+spec:
+  selector:
+    k8s-app: kubernetes-dashboard
+  ports:
+    - port: 443
+      targetPort: 8443
+  type: LoadBalancer
+
+kubectl apply -f dash-serv-ld.yaml
+
+# Obtenha o IP externo do serviço "dash-serv-ld"
+kubectl get services -n kube-system
+
+No navegador acesse (Firefox)
+https://IP_EXTERNO (Serviço dash-serv-ld)
+
+# Se quiser apagar o seriço criado anteriormente, execute
+kubectl delete service dash-serv-ld -n kube-system
+````
+
+**Dashboard Ativo Obs.:** Se você ativou o dashboard, para acessa lo use o navegador **Firefox**, pois por causa do certificado, ele não funcionará no **Chrome**.
+
+No navegador ao acessar o dashboard, você deve ser deparar com a seguinte tela.
+
+![App Screenshot](images/img6.png)
+
+Cole o token no campo **Enter token**, se necessário gere outro com o comando anteriormente informado, e click em **Sign in**.
+
+![App Screenshot](images/img7.png)
+
 ## Alguns comandos úteis
 
 ### MicroK8s (Execute dentro de cada VM)
