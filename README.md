@@ -184,7 +184,7 @@ kubectl get services -n kube-system
 No navegador acesse (Firefox)
 https://IP_EXTERNO (Serviço dash-serv-ld)
 
-# Se quiser apagar o seriço criado anteriormente, execute
+# Se quiser desativar o acesso externo, é só apagar o serviço, execute
 kubectl delete service dash-serv-ld -n kube-system
 ````
 
